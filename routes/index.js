@@ -9,7 +9,7 @@ let timeout = 3000;
 let serverInfo;
 let currentPlayers = [];
 
-let responseObject;
+
 
 routes.get("/", (req, res) =>  {
     query
@@ -25,38 +25,51 @@ routes.get("/", (req, res) =>  {
 
 routes.get('/players', (req, res) => {
     console.log("Players");
-    let response = ServerQuery("players");
+    let response = ServerQuery("players", chucksIP, chucksPort);
 
     res.send(response);
 });
  
 routes.get("/server-info", (req, res) => {
     console.log("Server Info.");
-    let response = ServerQuery("server-info");
+    let response = ServerQuery("server-info", chucksIP, chucksPort);
 
     res.send(response);
 });
 
-function ServerQuery(queryType) {
+routes.get("/players/:serverIp/:port", async (req, res) => {
+    let response = await ServerQuery("players", req.params.serverIp.toString(), parseInt(req.params.port) )
+    console.log(req.params)
+    res.send(response);
+});
+
+routes.get("/server-info/:serverIp/:port", async (req, res) => {
+    let response = await ServerQuery("server-info", req.params.serverIp.toString(), parseInt(req.params.port) )
+    console.log(req.params)
+    res.send(response);
+});
+
+function ServerQuery(queryType, ip, port){
     switch (queryType){
         case "players":
-            query.players(chucksIP, chucksPort, timeout)
+            query.players(ip, port, 3000)
                 .then(data => {
                     console.log(data)
                     currentPlayers = data
+                    currentPlayers.sort((a,b) => {return b.score - a.score})
                 })
                 .catch(console.log)
                 .then(query.close);
             return currentPlayers;
         case "server-info":
              query.info(chucksIP, chucksPort, timeout)
-                .then(data => responseObject = data)
+                .then(data => serverInfo = data)
                 .catch(console.log)
                 .then(query.close);
-            return responseObject;  
-    }
-    
-    
+            return serverInfo;
+    }    
+
 }
+
 
 module.exports = routes;
