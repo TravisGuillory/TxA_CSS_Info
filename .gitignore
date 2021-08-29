@@ -1,0 +1,11 @@
+**node_modules/
+SteamServer.dib
+
+# dependencies
+/node_modules
+
+# testing
+/coverage
+
+# production
+/build
