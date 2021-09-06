@@ -2,7 +2,6 @@ const routes = require("express").Router();
 
 const Gamedig = require("gamedig");
 
-
 routes.get("/:serverIp/:port", async (req, res) => {
     console.log(req.params);
     await Gamedig.query({
@@ -19,9 +18,5 @@ routes.get("/:serverIp/:port", async (req, res) => {
     
     
 }); 
-
-
-
-
 
 module.exports = routes;
