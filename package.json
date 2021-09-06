@@ -12,7 +12,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "source-server-query": "^1.0.1"
+    "gamedig": "^3.0.7"
   },
   "engines": {
     "node": "16.6.1"
