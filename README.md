@@ -1,9 +1,10 @@
 # TxA_CSS_Info
-https://travisguillory.github.io/TxAServerQuery/
+
 
 This api  is used to query Valve Counter Strike Source game servers for current current game and current player info.
 The site also queries Texas Arlington Adaptive Bots as well as 2 sister servers running the same modification. 
-The node.js api uses a UDP socket connection to set the server and player info. 
+The node.js api uses a UDP socket connection to set the server and player info.  This application is used to provide stats to a Chrome browser extension. https://chrome.google.com/webstore/detail/who-is-on-txa/paamfclegnpdbcekohaedjjikgggnbpj
+
 
 Thank you to Old and Slow for providing server access since 2002.
 
