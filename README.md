@@ -8,7 +8,7 @@ The node.js api uses a UDP socket connection to set the server and player info. 
 
 Thank you to Old and Slow for providing server access since 2002.
 
-## Adaptive Bots (Man vs. Machine)
+## Adaptive Bots (Man vs. Machine) 
 Special Metamod:Source plugins by Old and Slow
 
 * Bots are set to provide a challenge to the human players
