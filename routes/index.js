@@ -1,6 +1,6 @@
 const routes = require("express").Router();
 const cors = require("cors");
-routes.use("cors");
+routes.use(cors());
 const Gamedig = require("gamedig");
 
 routes.get("/:serverIp/:port", async (req, res) => {
